@@ -1,0 +1,33 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+ <lightning:recordEditForm objectApiName="Account">
+        <lightning:messages />
+        
+        <div class="slds-box slds-theme_default">       
+
+        <lightning:inputField fieldName="Name"/>
+        <lightning:inputField fieldName="Rating"/>
+        <lightning:inputField fieldName="Phone"/>
+        <lightning:inputField fieldName="Website"/>
+            
+        </div>
+        
+        <lightning:button class="slds-m-top_small" type="submit" label="Create new" onclick="{! c.showToast}"/>
+    </lightning:recordEditForm>
+</aura:component>
+
+
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ 
+ 
+({
+ showToast : function(componente, evento, auxiliar) {
+    var toastEvent = $A.get("e.force:showToast");
+    toastEvent.setParams({
+        "título": "Boaaa!",
+        "message": "Seu registro foi criado!"
+    });
+    toastEvent.fire();
+}
+})
